@@ -11,8 +11,18 @@ import {
   TOGGLE_CART,
 } from './actions';
 
+// The initial state needs to be defined within the reducer itself, since the reducer function is called once automatically during 
+// store creation
+const initialState = {
+  products: [],
+  cart: [],
+  cartOpen: false,
+  categories: [],
+  currentCategory: '',
+}
+
 // The reducer is a function that accepts the current state and an action. It returns a new state based on that action.
-export const reducer = (state, action) => {
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
     // Returns a copy of state with an update products array. We use the action.products property and spread it's contents into the new array.
     case UPDATE_PRODUCTS:
@@ -93,6 +103,8 @@ export const reducer = (state, action) => {
   }
 };
 
-export function useProductReducer(initialState) {
-  return useReducer(reducer, initialState);
-}
+// I believe below was Hooks + Context code, I don't think it is needed for Redux reducers
+
+// export function useProductReducer(initialState) {
+//   return useReducer(reducer, initialState);
+// }
