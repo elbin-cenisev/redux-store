@@ -18,5 +18,8 @@
   },
   "dependencies": {
     "redux": "^4.1.2"
+  },
+  "engines": {
+    "npm": "7.x"
   }
 }
